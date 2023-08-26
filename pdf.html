@@ -1,0 +1,599 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; border-right-style: none; border-right-color: currentcolor; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; border-bottom-style: none; border-bottom-color: currentcolor; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: medium; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>pdf</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='crifan的电子书的使用说明'><span>Crifan的电子书的使用说明</span></h1><p><span>最后更新：</span><code>20230713</code></p><hr /><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n3112"><a class="md-toc-inner" href="#crifan的电子书的使用说明">Crifan的电子书的使用说明</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3118"><a class="md-toc-inner" href="#源码">源码</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3120"><a class="md-toc-inner" href="#crifan电子书的简要说明">Crifan电子书的简要说明</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3869"><a class="md-toc-inner" href="#为何要有crifan的电子书">为何要有：Crifan的电子书</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3876"><a class="md-toc-inner" href="#为何要有crifan的电子书的使用说明">为何要有：Crifan的电子书的使用说明</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3927"><a class="md-toc-inner" href="#技术类">技术类</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n3953"><a class="md-toc-inner" href="#技术类通用知识">技术类通用知识</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n3990"><a class="md-toc-inner" href="#推荐的工具或软件">推荐的工具或软件</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n3992"><a class="md-toc-inner" href="#科学上网">科学上网</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n3997"><a class="md-toc-inner" href="#编辑器和ide">编辑器和IDE</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4000"><a class="md-toc-inner" href="#好用的编辑器和ide">好用的编辑器和IDE</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4013"><a class="md-toc-inner" href="#画图工具软件">画图工具软件</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4017"><a class="md-toc-inner" href="#文件对比工具">文件对比工具</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4020"><a class="md-toc-inner" href="#api接口测试">API接口测试</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4025"><a class="md-toc-inner" href="#ssh远程连接工具">ssh远程连接工具</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4030"><a class="md-toc-inner" href="#代码版本管理">代码版本管理</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n4035"><a class="md-toc-inner" href="#硬件类">硬件类</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n4049"><a class="md-toc-inner" href="#嵌入式软件">嵌入式软件</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4063"><a class="md-toc-inner" href="#开发环境交叉编译器">开发环境+交叉编译器</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4084"><a class="md-toc-inner" href="#嵌入式linux嵌入式linux驱动">嵌入式Linux+嵌入式Linux驱动</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4136"><a class="md-toc-inner" href="#具体模块或领域">具体模块或领域</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4137"><a class="md-toc-inner" href="#plc">PLC</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4141"><a class="md-toc-inner" href="#大的方向嵌入式的不同应用领域">大的方向=嵌入式的不同应用领域</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4155"><a class="md-toc-inner" href="#小方面来说关于具体的模块硬件协议方面">小方面来说=关于具体的模块/硬件/协议方面</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n4169"><a class="md-toc-inner" href="#上层软件">上层软件</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4171"><a class="md-toc-inner" href="#上层软件的通用知识">上层软件的通用知识</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4199"><a class="md-toc-inner" href="#字符编码">字符编码</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4208"><a class="md-toc-inner" href="#正则表达式">正则表达式</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4226"><a class="md-toc-inner" href="#信息安全">信息安全</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4232"><a class="md-toc-inner" href="#web安全">Web安全</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4251"><a class="md-toc-inner" href="#二进制安全">二进制安全</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4257"><a class="md-toc-inner" href="#设备安全">设备安全</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4270"><a class="md-toc-inner" href="#移动端安全和逆向">移动端安全和逆向</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4410"><a class="md-toc-inner" href="#自动化">自动化</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4411"><a class="md-toc-inner" href="#把工作自动化的工具">把工作自动化的工具</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4416"><a class="md-toc-inner" href="#自动化测试">自动化测试</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4476"><a class="md-toc-inner" href="#pc桌面端软件">PC桌面端软件</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4485"><a class="md-toc-inner" href="#苹果系统">苹果系统</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4488"><a class="md-toc-inner" href="#网页web领域开发">网页Web领域开发</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4499"><a class="md-toc-inner" href="#移动端app开发">移动端APP开发</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4516"><a class="md-toc-inner" href="#爬虫">爬虫</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4545"><a class="md-toc-inner" href="#通信领域">通信领域</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4574"><a class="md-toc-inner" href="#上层软件的其他领域">上层软件的其他领域</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4613"><a class="md-toc-inner" href="#python语言">Python语言</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4703"><a class="md-toc-inner" href="#我crifan的技术库">我Crifan的技术库</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n4722"><a class="md-toc-inner" href="#非技术类">非技术类</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n4723"><a class="md-toc-inner" href="#电脑计算机使用类">电脑计算机使用类</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n4752"><a class="md-toc-inner" href="#工作类">工作类</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4762"><a class="md-toc-inner" href="#领域相关知识">领域相关知识</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n4767"><a class="md-toc-inner" href="#生活类">生活类</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n4780"><a class="md-toc-inner" href="#娱乐类">娱乐类</a></span></p></div><hr /><h2 id='源码'><span>源码</span></h2><p><a href='https://github.com/crifan/crifan_ebook_readme'><span>crifan/crifan_ebook_readme: Crifan的电子书的使用说明</span></a></p><h2 id='crifan电子书的简要说明'><span>Crifan电子书的简要说明</span></h2><p><span>关于</span><a href='https://www.crifan.org/about/'><span>Crifan</span></a><span>的电子书，无需细节只关注重点，则只需看此概览：</span></p><ul><li><p><span>文字版</span></p><ul><li><p><span>技术类</span></p><ul><li><p><span>通用</span></p><ul><li><p><a href='assets/pdf/improve_work_efficiency.pdf'><span>提高效率</span></a></p></li><li><p><a href='assets/pdf/computer_tech_summary.pdf'><span>电脑通用知识</span></a></p></li><li><p><span>编程和开发</span></p><ul><li><p><a href='assets/pdf/learn_tech_method_experience.pdf'><span>学习方法和思路</span></a></p></li><li><p><a href='assets/pdf/program_code_style.pdf'><span>风格</span></a></p></li><li><p><a href='assets/pdf/docbook/lan_coding_rule.pdf'><span>规范</span></a></p></li><li><p><a href='assets/pdf/program_common_logic.pdf'><span>通用概念</span></a></p></li><li><p><a href='assets/pdf/soft_dev_basic.pdf'><span>基础知识</span></a></p></li><li><p><a href='assets/pdf/docbook/soft_tech_common.pdf'><span>通用知识</span></a></p></li></ul></li><li><p><span>推荐工具</span></p><ul><li><p><a href='assets/pdf/scientific_network_summary.pdf'><span>科学上网</span></a></p></li><li><p><span>编辑器和IDE</span></p><ul><li><p><a href='assets/pdf/editor_ide_summary.pdf'><span>总结</span></a></p></li><li><p><span>好用工具</span></p><ul><li><p><a href='assets/pdf/rec_soft_npp.pdf'><span>Notepad++</span></a></p></li><li><p><a href='assets/pdf/best_editor_vscode.pdf'><span>VSCode</span></a></p></li><li><p><a href='assets/pdf/most_intelligent_python_ide_pycharm.pdf'><span>PyCharm</span></a></p></li></ul></li></ul></li><li><p><span>API</span></p><ul><li><p><a href='assets/pdf/api_tool_postman.pdf'><span>Postman</span></a></p></li></ul></li><li><p><span>远程连接</span></p><ul><li><p><a href='assets/pdf/docbook/rec_soft_securecrt.pdf'><span>SecureCRT</span></a></p></li></ul></li><li><p><a href='assets/pdf/best_diagram_tool.pdf'><span>画图工具</span></a></p></li><li><p><a href='assets/pdf/file_compare_tool_summary.pdf'><span>文件对比</span></a></p></li></ul></li></ul></li><li><p><span>不同层次</span></p><ul><li><p><span>上层：纯软件</span></p><ul><li><p><span>通用</span></p><ul><li><p><a href='assets/pdf/http_summary.pdf'><span>HTTP</span></a></p></li><li><p><span>API</span></p><ul><li><p><a href='assets/pdf/http_restful_api.pdf'><span>RESTful</span></a></p></li></ul></li><li><p><span>编程语言</span></p><ul><li><p><a href='assets/pdf/programming_language_basic.pdf'><span>基础知识</span></a></p></li><li><p><a href='assets/pdf/language_summary.pdf'><span>语言简介</span></a></p></li></ul></li><li><p><span>数据库</span></p><ul><li><p><a href='assets/pdf/popular_rmdb_mysql.pdf'><span>MySQL</span></a></p></li><li><p><a href='assets/pdf/popular_document_db_mongodb.pdf'><span>MongoDB</span></a></p></li></ul></li><li><p><span>数据格式</span></p><ul><li><p><span>JSON</span></p><ul><li><p><a href='assets/pdf/json_tutorial.pdf'><span>旧</span></a></p></li><li><p><a href='assets/pdf/common_data_format_json.pdf'><span>新</span></a></p></li></ul></li></ul></li><li><p><span>版本管理</span></p><ul><li><p><a href='assets/pdf/popular_version_control_git.pdf'><span>Git</span></a></p></li></ul></li><li><p><span>字符编码</span></p><ul><li><p><a href='assets/pdf/char_encoding.pdf'><span>详解</span></a></p></li><li><p><a href='assets/pdf/char_encoding_usage.pdf'><span>应用</span></a></p></li><li><p><span>Python</span></p><ul><li><p><a href='assets/pdf/python_topic_str_encoding.pdf'><span>字符串和字符编码</span></a></p></li></ul></li></ul></li><li><p><span>正则表达式</span></p><ul><li><p><span>教程</span></p><ul><li><p><a href='assets/pdf/regular_expression.pdf'><span>旧</span></a></p></li><li><p><a href='assets/pdf/super_search_regex.pdf'><span>新</span></a></p></li></ul></li><li><p><a href='assets/pdf/regex_usage_examples.pdf'><span>应用举例</span></a></p></li><li><p><span>Python</span></p><ul><li><p><span>re模块</span></p><ul><li><p><a href='assets/pdf/python_topic_re.pdf'><span>旧</span></a></p></li><li><p><a href='assets/pdf/python_regex_re_intro.pdf'><span>新</span></a></p></li></ul></li></ul></li></ul></li></ul></li><li><p><span>信息安全</span></p><ul><li><p><a href='assets/pdf/information_security_overview.pdf'><span>概览</span></a></p></li><li><p><a href='assets/pdf/avoid_hacker_attack_web_security.pdf'><span>Web安全</span></a></p><ul><li><p><a href='assets/pdf/infiltrate_your_net_penetration_testing.pdf'><span>渗透测试</span></a></p></li><li><p><a href='assets/pdf/grasp_hacker_track_security_analysis.pdf'><span>安全分析</span></a></p></li></ul></li><li><p><a href='assets/pdf/explore_underlying_mechanism_binary_security.pdf'><span>二进制安全</span></a></p></li><li><p><span>移动安全</span></p><ul><li><p><span>通用</span></p><ul><li><p><span>语言</span></p><ul><li><p><a href='assets/pdf/popular_assembly_arm.pdf'><span>ARM汇编</span></a></p></li></ul></li><li><p><span>静态分析</span></p><ul><li><p><a href='assets/pdf/reverse_tool_ida.pdf'><span>IDA</span></a></p></li></ul></li><li><p><span>动态调试</span></p><ul><li><p><a href='assets/pdf/reverse_debug_frida.pdf'><span>Frida</span></a></p></li><li><p><a href='assets/pdf/popular_debugger_lldb.pdf'><span>LLDB</span></a></p></li><li><p><span>高级逆向</span></p><ul><li><p><span>代码模拟</span></p><ul><li><p><a href='assets/pdf/cpu_emulator_unicorn.pdf'><span>Unicorn</span></a></p></li></ul></li></ul></li></ul></li></ul></li><li><p><a href='assets/pdf/android_app_security_crack.pdf'><span>Android安全和逆向</span></a></p><ul><li><p><span>Android逆向</span></p><ul><li><p><a href='assets/pdf/android_reverse_dev.pdf'><span>Android逆向开发</span></a></p><ul><li><p><a href='assets/pdf/android_re_enable_root.pdf'><span>开启root</span></a></p></li><li><p><a href='assets/pdf/android_re_repack_apk.pdf'><span>重新打包apk</span></a></p></li><li><p><a href='assets/pdf/android_re_dynamic_debug.pdf'><span>动态调试</span></a></p></li></ul></li></ul></li></ul></li><li><p><span>iOS安全和逆向</span></p><ul><li><p><span>iOS安全</span></p><ul><li><p><a href='assets/pdf/ios_security_protect.pdf'><span>iOS安全与防护</span></a></p></li></ul></li><li><p><span>iOS逆向</span></p><ul><li><p><a href='assets/pdf/ios_reverse_dev.pdf'><span>iOS逆向开发</span></a></p><ul><li><p><span>典型流程</span></p><ul><li><p><a href='assets/pdf/ios_re_iphone_jailbreak.pdf'><span>iPhone越狱</span></a></p><ul><li><p><a href='assets/pdf/ios_re_ios15_jailbreak.pdf'><span>iOS15越狱</span></a></p></li><li><p><a href='assets/pdf/ios_re_package_manager.pdf'><span>包管理器</span></a></p></li></ul></li><li><p><a href='assets/pdf/ios_re_crack_shell_ipa.pdf'><span>砸壳ipa</span></a></p></li><li><p><a href='assets/pdf/ios_re_static_analysis.pdf'><span>静态分析</span></a></p></li><li><p><a href='assets/pdf/ios_re_dynamic_debug.pdf'><span>动态调试</span></a></p><ul><li><p><a href='assets/pdf/ios_re_monkeydev_debug.pdf'><span>MonkeyDev</span></a></p></li><li><p><a href='assets/pdf/xcode_dev_summary.pdf'><span>Xcode</span></a></p><ul><li><p><a href='assets/pdf/xcode_dev_debug_summary.pdf'><span>调试心得</span></a></p></li></ul></li></ul></li></ul></li><li><p><span>涉及领域</span></p><ul><li><p><a href='assets/pdf/ios_re_jailbreak_tweak.pdf'><span>越狱插件开发</span></a></p><ul><li><p><a href='assets/pdf/ios_re_iosopendev_tweak.pdf'><span>iOSOpenDev</span></a></p></li></ul></li><li><p><a href='assets/pdf/ios_re_ios_internal.pdf'><span>iOS底层机制</span></a></p><ul><li><p><a href='assets/pdf/ios_re_objc_runtime.pdf'><span>ObjC运行时</span></a></p></li><li><p><a href='assets/pdf/ios_re_objc_block.pdf'><span>Block匿名函数</span></a></p></li></ul></li><li><p><a href='assets/pdf/ios_re_jb_detection.pdf'><span>越狱检测和反越狱检测</span></a></p></li><li><p><a href='assets/pdf/ios_re_debug_breakpoint.pdf'><span>断点</span></a></p></li></ul></li><li><p><span>实例</span></p><ul><li><p><a href='assets/pdf/ios_re_youtube_reverse.pdf'><span>YouTube逆向</span></a></p><ul><li><p><a href='assets/pdf/ios_re_protobuf_reverse.pdf'><span>protobuf逆向</span></a></p></li></ul></li></ul></li><li><p><span>相关</span></p><ul><li><p><span>开发语言</span></p><ul><li><p><a href='assets/pdf/c_lang_dev_summary.pdf'><span>C</span></a></p></li><li><p><a href='assets/pdf/ios_dev_summary.pdf'><span>iOS</span></a></p></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></li><li><p><span>设备安全</span></p><ul><li><p><a href='assets/pdf/industrial_control_security_overview.pdf'><span>工控安全</span></a></p></li><li><p><a href='assets/pdf/guard_your_car_safety.pdf'><span>汽车安全</span></a></p></li></ul></li></ul></li><li><p><span>移动端</span></p><ul><li><p><span>安卓</span></p><ul><li><p><span>辅助工具</span></p><ul><li><p><a href='assets/pdf/crack_assistant_xposed_framework.pdf'><span>Xposed</span></a></p></li><li><p><a href='assets/pdf/good_android_emulator_nox.pdf'><span>Nox模拟器</span></a></p></li></ul></li></ul></li></ul></li><li><p><span>自动化</span></p><ul><li><p><span>工具</span></p><ul><li><p><a href='assets/pdf/good_automation_tool_makefile.pdf'><span>Makefile</span></a></p></li></ul></li><li><p><span>测试</span></p><ul><li><p><a href='assets/pdf/free_hand_test_automation.pdf'><span>概览</span></a></p></li><li><p><span>Web</span></p><ul><li><p><a href='assets/pdf/selenium_summary.pdf'><span>Selenium</span></a></p></li><li><p><a href='assets/pdf/web_automation_tool_playwright.pdf'><span>Playwright</span></a></p></li><li><p><a href='assets/pdf/web_automation_tool_puppeteer.pdf'><span>puppeteer</span></a></p></li></ul></li><li><p><span>移动端</span></p><ul><li><p><a href='assets/pdf/mobile_automation_overview.pdf'><span>概览</span></a></p><ul><li><p><span>通用</span></p><ul><li><p><a href='assets/pdf/popular_automation_framework_appium.pdf'><span>Appium</span></a></p></li></ul></li></ul></li><li><p><span>Android</span></p><ul><li><p><a href='assets/pdf/android_automation_uiautomator2.pdf'><span>uiautomator2</span></a></p></li></ul></li><li><p><span>iOS</span></p><ul><li><p><a href='assets/pdf/ios_automation_facebook_wda.pdf'><span>facebook-wda</span></a></p></li></ul></li></ul></li></ul></li></ul></li><li><p><span>桌面端</span></p><ul><li><p><a href='assets/pdf/csharp_summary.pdf'><span>C#</span></a></p></li><li><p><span>跨平台应用</span></p><ul><li><p><a href='assets/pdf/desktop_app_framework_electron.pdf'><span>Electron</span></a></p></li></ul></li></ul></li><li><p><span>Apple</span></p><ul><li><p><a href='assets/pdf/apple_develop_summary.pdf'><span>开发总结</span></a></p></li></ul></li><li><p><span>Web</span></p><ul><li><p><span>网站</span></p><ul><li><p><a href='assets/pdf/build_website.pdf'><span>建站</span></a></p></li><li><p><a href='assets/pdf/website_transfer.pdf'><span>搬家</span></a></p></li></ul></li><li><p><span>数据可视化</span></p><ul><li><p><span>JS图表库</span></p><ul><li><p><a href='assets/pdf/popular_js_chart_lib_echarts.pdf'><span>ECharts</span></a></p></li></ul></li></ul></li></ul></li><li><p><span>移动端</span></p><ul><li><p><a href='assets/pdf/mobile_app_summary.pdf'><span>APP开发</span></a></p></li></ul></li><li><p><span>爬虫</span></p><ul><li><p><span>原理</span></p><ul><li><p><span>新</span></p><ul><li><p><a href='assets/pdf/crawl_your_data_spider_technology.pdf'><span>爬虫技术</span></a></p></li></ul></li><li><p><span>旧</span></p><ul><li><p><a href='assets/pdf/web_scrape_emulate_login.pdf'><span>原理和实现</span></a></p></li></ul></li></ul></li><li><p><span>Python</span></p><ul><li><p><span>新</span></p><ul><li><p><a href='assets/pdf/use_python_write_spider.pdf'><span>用Python写爬虫</span></a></p></li></ul></li><li><p><span>旧</span></p><ul><li><p><a href='assets/pdf/python_topic_web_scrape.pdf'><span>Python抓取网页</span></a></p></li></ul></li><li><p><span>Python爬虫框架</span></p><ul><li><p><a href='assets/pdf/python_spider_pyspider.pdf'><span>PySpider</span></a></p></li><li><p><a href='assets/pdf/python_spider_scrapy.pdf'><span>Scrapy</span></a></p></li></ul></li></ul></li><li><p><span>相关</span></p><ul><li><p><span>内容解析</span></p><ul><li><p><a href='assets/pdf/xpath_summary.pdf'><span>XPath</span></a></p></li><li><p><span>BeautifulSoup</span></p><ul><li><p><a href='assets/pdf/python_topic_beautifulsoup.pdf'><span>旧</span></a></p></li><li><p><a href='assets/pdf/html_parse_tool_beautifulsoup.pdf'><span>新</span></a></p></li></ul></li><li><p><a href='assets/pdf/python_html_parse_pyquery.pdf'><span>PyQuery</span></a></p></li></ul></li></ul></li><li><p><span>抓包工具</span></p><ul><li><p><a href='assets/pdf/app_capture_package_tool_charles.pdf'><span>Charles</span></a></p></li></ul></li></ul></li><li><p><span>编译器</span></p><ul><li><p><a href='assets/pdf/antlr_tutorial.pdf'><span>ANTLR</span></a></p></li></ul></li><li><p><span>电子书</span></p><ul><li><p><span>格式</span></p><ul><li><p><a href='assets/pdf/doc_format_markdown.pdf'><span>Markdown</span></a></p></li></ul></li><li><p><span>制作工具</span></p><ul><li><p><a href='assets/pdf/ebook_system_gitbook.pdf'><span>GitBook</span></a></p></li><li><p><a href='assets/pdf/docbook_dev_note.pdf'><span>Docbook</span></a></p></li></ul></li></ul></li><li><p><span>压缩工具</span></p><ul><li><p><a href='assets/pdf/common_compress_tool_summary.pdf'><span>常见总结</span></a></p></li></ul></li><li><p><span>音视频</span></p><ul><li><p><a href='assets/pdf/media_process_ffmpeg.pdf'><span>ffmpeg</span></a></p></li></ul></li><li><p><span>通信领域</span></p><ul><li><p><span>移动网络</span></p><ul><li><p><a href='assets/pdf/mobile_network_evolution_history.pdf'><span>演化</span></a></p></li></ul></li><li><p><span>多媒体</span></p><ul><li><p><a href='https://crifan.github.io/multimedia_core_system_ims.pdf'><span>IMS</span></a></p></li></ul></li><li><p><span>RCS=5G消息</span></p><ul><li><p><a href='assets/pdf/5g_message_rcs_tech_summary.pdf'><span>概述</span></a></p></li><li><p><a href='assets/pdf/rcs_tech_dev_summary.pdf'><span>开发</span></a></p></li></ul></li><li><p><span>5G</span></p><ul><li><p><a href='assets/pdf/5g_tech_summary.pdf'><span>概览</span></a></p></li></ul></li></ul></li><li><p><span>编程语言</span></p><ul><li><p><span>个人crifan的库 CrifanLib</span></p><ul><li><p><a href='assets/pdf/crifanlib_csharp.pdf'><span>C# crifanLib.cs</span></a></p></li><li><p><a href='assets/pdf/crifanlib_python.pdf'><span>Python crifanLib.py</span></a></p></li></ul></li><li><p><span>Python</span></p><ul><li><p><span>教程</span></p><ul><li><p><span>旧</span></p><ul><li><p><a href='assets/pdf/python_beginner_tutorial.pdf'><span>入门详解</span></a></p></li><li><p><a href='assets/pdf/python_intermediate_tutorial.pdf'><span>中级教程</span></a></p></li><li><p><a href='assets/pdf/python_summary.pdf'><span>总结</span></a></p></li></ul></li><li><p><span>新</span></p><ul><li><p><a href='assets/pdf/python_newbie_mistakes_questions.pdf'><span>新手小白常见错误</span></a></p></li><li><p><a href='assets/pdf/make_life_better_python.pdf'><span>让你人生不苦短</span></a></p></li></ul></li></ul></li><li><p><a href='assets/pdf/python_common_code_snippet.pdf'><span>常用代码段</span></a></p></li><li><p><span>网络库</span></p><ul><li><p><a href='assets/pdf/python_summary_http_lib.pdf'><span>总结</span></a></p></li></ul></li><li><p><span>虚拟环境</span></p><ul><li><p><a href='assets/pdf/python_summary_virtual_environment.pdf'><span>总结</span></a></p></li></ul></li><li><p><span>操作文件</span></p><ul><li><p><a href='assets/pdf/python_process_csv_excel.pdf'><span>CSV和Excel</span></a></p></li></ul></li></ul></li></ul></li></ul></li><li><p><span>中间：嵌入式</span></p><ul><li><p><span>通用</span></p><ul><li><p><a href='assets/pdf/common_logic_hardware_embedded.pdf'><span>概念</span></a></p></li><li><p><span>嵌入式</span></p><ul><li><p><a href='assets/pdf/embedded_soft_dev.pdf'><span>软件开发</span></a></p></li><li><p><a href='assets/pdf/embedded_drv_dev.pdf'><span>驱动开发</span></a></p></li><li><p><span>嵌入式Linux</span></p><ul><li><p><a href='assets/pdf/embedded_linux_dev.pdf'><span>软件开发</span></a></p></li><li><p><a href='assets/pdf/embedded_linux_drv_dev.pdf'><span>驱动开发</span></a></p></li></ul></li></ul></li></ul></li><li><p><span>开发前=开发环境</span></p><ul><li><p><span>交叉编译</span></p><ul><li><p><a href='assets/pdf/cross_compile.pdf'><span>概览</span></a></p></li><li><p><span>常见工具</span></p><ul><li><p><a href='assets/pdf/buildroot_intro.pdf'><span>Buildroot</span></a></p></li><li><p><a href='assets/pdf/crosstool_ng.pdf'><span>crosstool-ng</span></a></p></li></ul></li></ul></li><li><p><span>Linux on Win</span></p><ul><li><p><a href='assets/pdf/cygwin_intro.pdf'><span>Cygwin</span></a></p></li></ul></li></ul></li><li><p><span>开发期间=开发知识</span></p><ul><li><p><span>系统启动</span></p><ul><li><p><a href='assets/pdf/uboot_starts_analysis.pdf'><span>Uboot的start.S</span></a></p></li></ul></li><li><p><a href='assets/pdf/interrupt_related.pdf'><span>中断</span></a></p></li><li><p><span>CPU</span></p><ul><li><p><a href='assets/pdf/arm_vs_mips.pdf'><span>ARM和MIPS对比</span></a></p></li></ul></li><li><p><span>DMA</span></p><ul><li><p><a href='assets/pdf/dma_pl08x_analysis.pdf'><span>ARM的AMBA的PL08X</span></a></p></li></ul></li><li><p><span>无线网卡</span></p><ul><li><p><a href='assets/pdf/linux_wireless.pdf'><span>驱动</span></a></p></li></ul></li><li><p><span>Nand Flash</span></p><ul><li><p><span>Linux</span></p><ul><li><p><a href='assets/pdf/nand_get_type.pdf'><span>MTD</span></a></p></li><li><p><a href='assets/pdf/linux_nand_driver.pdf'><span>驱动</span></a></p></li></ul></li></ul></li><li><p><span>USB</span></p><ul><li><p><a href='assets/pdf/usb_basic.pdf'><span>基础知识</span></a></p></li><li><p><a href='assets/pdf/usb_hid.pdf'><span>HID</span></a></p></li><li><p><span>Linux</span></p><ul><li><p><a href='assets/pdf/usb_disk_driver.pdf'><span>U盘驱动</span></a></p></li></ul></li></ul></li><li><p><span>蓝牙</span></p><ul><li><p><a href='assets/pdf/bluetooth_intro.pdf'><span>协议</span></a></p></li></ul></li><li><p><span>RS232串口</span></p><ul><li><p><a href='assets/pdf/rs232_serial_intro.pdf'><span>协议</span></a></p></li></ul></li><li><p><span>音频</span></p><ul><li><p><a href='assets/pdf/mpeg_vbr.pdf'><span>MPEG和MP3的CBR/VBR</span></a></p></li></ul></li><li><p><span>其他</span></p><ul><li><p><a href='assets/pdf/binutils_intro.pdf'><span>GNU Binutils</span></a></p></li></ul></li></ul></li><li><p><span>开发完成=烧录+升级</span></p><ul><li><p><a href='assets/pdf/firmware_download.pdf'><span>固件烧录</span></a></p></li><li><p><a href='assets/pdf/runtime_upgrade_linux.pdf'><span>升级Linux系统</span></a><span>  </span></p></li></ul></li><li><p><span>其他领域</span></p><ul><li><p><a href='assets/pdf/industrial_automation_plc.pdf'><span>PLC</span></a></p></li><li><p><a href='assets/pdf/fieldbus_intro.pdf'><span>现场总线</span></a></p></li><li><p><span>条形码Symbology</span></p><ul><li><p><a href='assets/pdf/symbology_code128.pdf'><span>Code 128</span></a></p></li><li><p><a href='assets/pdf/symbology_gs1128.pdf'><span>GS1-128</span></a></p></li><li><p><a href='assets/pdf/symbology_plessey.pdf'><span>Plessey和MSI</span></a></p></li><li><p><a href='assets/pdf/symbology_upc.pdf'><span>UPC系列和EAN</span></a></p></li></ul></li></ul></li></ul></li><li><p><span>底层：硬件</span></p><ul><li><p><a href='assets/pdf/hardware_basic.pdf'><span>基础知识</span></a></p></li><li><p><span>芯片</span></p><ul><li><p><a href='assets/pdf/ic_chip_industry_chain_summary.pdf'><span>产业链</span></a></p></li></ul></li><li><p><span>智能音箱</span></p><ul><li><p><a href='assets/pdf/smart_speaker_disassemble_summary.pdf'><span>拆解</span></a></p></li></ul></li></ul></li></ul></li></ul></li><li><p><span>非技术</span></p><ul><li><p><span>工作类</span></p><ul><li><p><a href='assets/pdf/work_job_summary.pdf'><span>工作和职业</span></a></p></li><li><p><span>工具和软件</span></p><ul><li><p><span>协作</span></p><ul><li><p><a href='assets/pdf/youdao_note_summary.pdf'><span>有道云笔记和云协作</span></a></p></li></ul></li></ul></li><li><p><span>领域知识</span></p><ul><li><p><a href='assets/pdf/automobile_sales_summary.pdf'><span>汽车销售</span></a></p></li></ul></li></ul></li><li><p><span>生活类</span></p><ul><li><p><span>电脑使用</span></p><ul><li><p><a href='assets/pdf/compute_basic.pdf'><span>基础知识</span></a></p></li><li><p><a href='assets/pdf/crifan_rec_soft.pdf'><span>推荐软件</span></a></p></li><li><p><span>虚拟机</span></p><ul><li><p><a href='assets/pdf/virutal_machine_tutorial.pdf'><span>教程</span></a></p></li><li><p><span>常见</span></p><ul><li><p><a href='assets/pdf/virtualbox_tutorial.pdf'><span>VirtualBox</span></a></p></li><li><p><span>VMWare</span></p><ul><li><p><a href='assets/pdf/vmware_tutorial.pdf'><span>旧</span></a></p></li><li><p><a href='assets/pdf/popular_virtual_machine_vmware.pdf'><span>新</span></a></p></li></ul></li></ul></li></ul></li></ul></li><li><p><a href='assets/pdf/buy_house.pdf'><span>买房</span></a></p></li><li><p><a href='assets/pdf/resident_life_experience_summary.pdf'><span>生活经验</span></a></p></li><li><p><a href='assets/pdf/china_suitable_living_suzhou.pdf'><span>苏州</span></a></p></li></ul></li><li><p><span>娱乐类</span></p><ul><li><p><a href='assets/pdf/all_age_sports_badminton.pdf'><span>羽毛球</span></a></p></li></ul></li></ul></li></ul></li></ul><h2 id='为何要有crifan的电子书'><span>为何要有：Crifan的电子书</span></h2><p><span>我</span><code>Crifan Li</code><span>之前折腾过很多方面的内容，包括技术类的和非技术类的。</span></p><p><span>关于技术类中又分很多种，其中都放到了我的网站 crifan.com 上的</span><a href='https://www.crifan.org/category/work_and_job/'><span>工作和技术</span></a><span>，目前已有</span><strong><span>7000多</span></strong><span>的技术帖，但多数内容都是零散的某个细节知识点和某个具体问题的解决过程和结果。</span></p><p><span>当我在某个技术领域有了一定的心得和经验后，就会抽空整理成相对成系统的内容，用(</span><a href='assets/pdf/docbook_dev_note.pdf'><span>Docbook</span></a><span>、</span><a href='assets/pdf/ebook_system_gitbook.pdf'><span>Gitbook</span></a><span>等)工具去制作出电子书，免费发布出来供别人参考。</span></p><p><span>目前已经整理出</span><strong><span>150多</span></strong><span>本成系列的电子书了，接下来详细介绍：</span></p><blockquote><p><span>另：手上还有</span><strong><span>几十本</span></strong><span>电子书的内容已基本完成，待之后能抽出时间再尽快整理发布出来。</span></p></blockquote><h2 id='为何要有crifan的电子书的使用说明'><span>为何要有：Crifan的电子书的使用说明</span></h2><p><span>我写的电子书涵盖范围面较广，需要专门整理后的分门别类的介绍，才有利于他人快速定位到自己所需要参考的内容。</span></p><p><span>目前所写电子书的总的概览：</span></p><ul><li><p><span>内容上：主要分两类</span></p><ul><li><p><span>一方面：技术类</span></p><ul><li><p><span>计算机相关的，技术类，开发类</span></p></li></ul></li><li><p><span>另一方面：非技术类</span></p><ul><li><p><span>生活类的，学习类的，娱乐类等</span></p></li></ul></li></ul></li><li><p><span>制作工具上：也分两类</span></p><ul><li><p><span>一类是（最早）用</span><code>Docbook</code><span>制作的</span></p><ul><li><p><span>主入口：</span><a href='https://www.crifan.com/files/doc/docbook/' target='_blank' class='url'>https://www.crifan.com/files/doc/docbook/</a></p></li></ul></li><li><p><span>另一类（后来，现在）是用</span><code>Gitbook</code><span>制作的</span></p><ul><li><p><span>弄了2份一样的，分别发布到</span></p><ul><li><p><span>自己的 crifan.com 的网站上</span></p><ul><li><p><span>主入口：</span><a href='https://book.crifan.com/books/' target='_blank' class='url'>https://book.crifan.com/books/</a></p></li></ul></li><li><p><span>和 </span><a href='https://help.github.com/en/articles/what-is-github-pages'><span>GitHub Pages</span></a><span> 上</span></p><ul><li><p><span>主入口：</span><a href='https://crifan.github.io' target='_blank' class='url'>https://crifan.github.io</a></p></li><li><p><span>对应源码：</span><a href='https://github.com/crifan/crifan.github.io' target='_blank' class='url'>https://github.com/crifan/crifan.github.io</a></p></li></ul></li></ul></li><li><p><code>gitbook</code><span>电子书的源码</span></p><ul><li><p><span>全部源码都已公开放在</span><code>github</code><span>上了，详见：</span><a href='https://github.com/crifan' target='_blank' class='url'>https://github.com/crifan</a></p></li><li><p><span>如何利用gitbook的源码去创建自己的电子书，可以参考：</span><a href='https://github.com/crifan/gitbook_template' target='_blank' class='url'>https://github.com/crifan/gitbook_template</a></p></li></ul></li></ul></li></ul></li></ul><p><span>下面详细介绍各个电子书的具体分类和内容简介：</span></p><h2 id='技术类'><span>技术类</span></h2><p><span>从大的概念上来说，计算机的技术可以大致分为：</span></p><ul><li><p><strong><span>上层：纯软件</span></strong></p><ul><li><p><span>涉及到在PC（Windows/Mac/Linux）上，用各种编辑器/IDE，去编写各种代码，实现各种工具/软件/脚本等内容</span></p></li><li><p><span>包括PC桌面端软件，Web领域网页开发，移动端APP开发等等</span></p></li></ul></li><li><p><strong><span>中间：</span></strong><span>（软硬件结合的）</span><strong><span>嵌入式</span></strong></p><ul><li><p><span>涉及到在某某开发板上，写嵌入式代码，驱动硬件工作</span></p></li><li><p><span>包括给别人的芯片或开发板，去写某BSP，某个模块（蓝牙，USB，FM，Nand Flash等）的驱动</span></p></li></ul></li><li><p><strong><span>底层：纯硬件</span></strong></p><ul><li><p><span>涉及PCB Layout，设计和生产开发版</span></p></li><li><p><span>涉及到各种芯片的涉及，包括CPU，内存，显示屏等，涉及到流水线，代工厂等等内容</span></p></li></ul></li></ul><p><span>自己主要涉及的领域是：</span></p><p><strong><span>中间的嵌入式</span></strong><span> 和 </span><strong><span>上层的纯软件</span></strong></p><h3 id='技术类通用知识'><span>技术类通用知识</span></h3><p><span>不论哪方面的技术，都有一些通用的学习方面，逻辑概念，总结如下：</span></p><ul><li><p><span>关于如何学习和利用网络资料，以及一些技术方面的心得体会和总结：</span></p><ul><li><p><a href='assets/pdf/learn_tech_method_experience.pdf'><span>学习方法思路及技术心得总结</span></a></p></li></ul></li><li><p><span>关于如何利用工具和脚本提供工作效率的：</span></p><ul><li><p><a href='assets/pdf/improve_work_efficiency.pdf'><span>如何提高工作效率</span></a></p></li></ul></li><li><p><span>关于要有良好的编程习惯和逻辑，才能写出高质量代码：</span></p><ul><li><p><a href='assets/pdf/program_code_style.pdf'><span>编程习惯和代码风格</span></a></p></li><li><p><a href='assets/pdf/docbook/lan_coding_rule.pdf'><span>计算机语言编程规范</span></a></p></li></ul></li><li><p><span>对于不同领域的技术，都有一些通用的概念需要了解，才能更好的开发：</span></p><ul><li><p><a href='assets/pdf/program_common_logic.pdf'><span>计算机编程通用逻辑知识概念</span></a></p></li></ul></li><li><p><span>以及都有一些通知的基础知识：</span></p><ul><li><p><a href='assets/pdf/soft_dev_basic.pdf'><span>软件开发基础知识</span></a></p></li><li><p><a href='assets/pdf/soft_tech_common.pdf'><span>软件技术开发通用知识</span></a></p></li></ul></li><li><p><span>对于计算机，或者说电脑，各种不同类型系统都有一些通用的基础知识：</span></p><ul><li><p><a href='assets/pdf/computer_tech_summary.pdf'><span>计算机电脑知识总结</span></a></p></li></ul></li></ul><h3 id='推荐的工具或软件'><span>推荐的工具或软件</span></h3><p><span>做各种领域的技术开发，甚至非技术方面的工作，都会涉及到一些好用的工具和利器，现整理如下：</span></p><h4 id='科学上网'><span>科学上网</span></h4><p><span>想要用外网，比如用google等搜索技术资料，可以使用shadowsocks：</span></p><ul><li><p><a href='assets/pdf/scientific_network_summary.pdf'><span>科学上网相关知识总结</span></a></p></li></ul><h4 id='编辑器和ide'><span>编辑器和IDE</span></h4><p><span>关于编辑器和IDE的概览和总结：</span></p><p><a href='assets/pdf/editor_ide_summary.pdf'><span>编辑器和IDE总结</span></a></p><h5 id='好用的编辑器和ide'><span>好用的编辑器和IDE</span></h5><p><span>之前Windows下觉得最好用的编辑器Notepad++：</span></p><ul><li><p><a href='assets/pdf/rec_soft_npp.pdf'><span>【crifan推荐】轻量级文本编辑器，Notepad最佳替代品：Notepad++</span></a></p></li></ul><p><span>现在觉得更好用的、最好用的编辑器（甚至可称之为IDE）：VSCode：</span></p><ul><li><p><a href='assets/pdf/best_editor_vscode.pdf'><span>史上最好用的编辑器：VSCode</span></a></p></li></ul><p><span>Python开发中最专业的IDE：</span></p><ul><li><p><a href='assets/pdf/most_intelligent_python_ide_pycharm.pdf'><span>最智能的Python的IDE：PyCharm</span></a></p></li></ul><h4 id='画图工具软件'><span>画图工具软件</span></h4><p><span>涉及到画路程图、结构图、架构图等，可以参考：</span></p><p><a href='assets/pdf/best_diagram_tool.pdf'><span>好用的画图工具</span></a></p><p><span>去选择合适的画图工具。</span></p><h4 id='文件对比工具'><span>文件对比工具</span></h4><p><span>如果需要对比文件、文件夹中的内容，可以参考：</span></p><p><a href='assets/pdf/file_compare_tool_summary.pdf'><span>文件内容对比工具总结</span></a></p><h4 id='api接口测试'><span>API接口测试</span></h4><p><span>后端人员，移动端开发人员，测试人员等涉及调试api接口时，可以用Postman：</span></p><ul><li><p><a href='assets/pdf/api_tool_postman.pdf'><span>API开发利器：Postman</span></a></p></li></ul><h4 id='ssh远程连接工具'><span>ssh远程连接工具</span></h4><p><span>通过SSH连接远程服务器的工具方面，常用SecureCRT：</span></p><ul><li><p><a href='assets/pdf/rec_soft_securecrt.pdf'><span>【crifan推荐】支持多种协议的串口开发工具：SecureCRT</span></a></p></li></ul><h4 id='代码版本管理'><span>代码版本管理</span></h4><p><span>当前最流行的是</span><code>Git</code><span>：</span></p><ul><li><p><a href='assets/pdf/popular_version_control_git.pdf'><span>最流行的版本管理系统：Git</span></a></p></li></ul><h3 id='硬件类'><span>硬件类</span></h3><p><span>折腾嵌入式期间，其实也想去了解硬件方面的知识，只不过没有深入。</span></p><p><span>只整理了点和硬件相关的皮毛：</span></p><ul><li><p><a href='assets/pdf/hardware_basic.pdf'><span>硬件电路基础知识</span></a></p></li></ul><p><span>之前拆过智能音箱，然后总结了相关各种细节：</span></p><ul><li><p><a href='assets/pdf/smart_speaker_disassemble_summary.pdf'><span>智能音箱拆解总结</span></a></p></li></ul><p><span>且在拆解期间又去整理了芯片和产业链的相关知识：</span></p><ul><li><p><a href='assets/pdf/ic_chip_industry_chain_summary.pdf'><span>芯片产业链总结</span></a></p></li></ul><h3 id='嵌入式软件'><span>嵌入式软件</span></h3><p><span>下面是之前折腾的嵌入式开发相关的内容：</span></p><p><span>嵌入式领域（包括很多硬件反面）都有些通用的基础知识和概念：</span></p><ul><li><p><a href='assets/pdf/common_logic_hardware_embedded.pdf'><span>硬件和嵌入式通用逻辑知识概念</span></a></p></li></ul><p><span>关于CPU方面的：</span></p><ul><li><p><a href='assets/pdf/arm_vs_mips.pdf'><span>ARM与MIPS的详细对比</span></a></p></li></ul><p><span>和技术和概念相关的，比如：</span></p><ul><li><p><a href='assets/pdf/interrupt_related.pdf'><span>【详解】中断相关的知识</span></a></p></li></ul><h4 id='开发环境交叉编译器'><span>开发环境+交叉编译器</span></h4><p><span>在折腾嵌入式相关开发前，往往要先去搭建开发环境，其中就要先去搞懂：交叉编译</span></p><p><span>先去搞清楚什么是交叉编译：</span></p><ul><li><p><a href='assets/pdf/cross_compile.pdf'><span>交叉编译详解</span></a></p></li></ul><p><span>然后再去了解相关的GNU方面的工具：</span></p><ul><li><p><a href='assets/pdf/binutils_intro.pdf'><span>GNU Binutils详解</span></a></p></li></ul><p><span>然后再去用具体的某个工具，去搭建交叉编译环境（和相关的工具链、rootfs等内容）：</span></p><ul><li><p><a href='assets/pdf/buildroot_intro.pdf'><span>Buildroot详解</span></a></p></li><li><p><a href='assets/pdf/crosstool_ng.pdf'><span>crosstool-ng详解</span></a></p></li></ul><p><span>关于开发环境的：</span></p><p><span>在Windows上折腾Linux方面的开发，用Cygiwn：</span></p><ul><li><p><a href='assets/pdf/cygwin_intro.pdf'><span>Cygwin详解</span></a></p></li></ul><h4 id='嵌入式linux嵌入式linux驱动'><span>嵌入式Linux+嵌入式Linux驱动</span></h4><p><span>如果对于嵌入式软件的整体概念不了解，可以去看：</span></p><ul><li><p><a href='assets/pdf/embedded_soft_dev.pdf'><span>嵌入式软件开发</span></a></p></li></ul><p><span>如果想要了解嵌入式软件中关于驱动开发的事情，可以去看：</span></p><ul><li><p><a href='assets/pdf/embedded_drv_dev.pdf'><span>嵌入式驱动开发</span></a></p></li></ul><p><span>而关于嵌入式Linux方面的软件和软件中的驱动，可以去看：</span></p><ul><li><p><a href='assets/pdf/embedded_linux_dev.pdf'><span>嵌入式Linux软件开发</span></a></p></li><li><p><a href='assets/pdf/embedded_linux_drv_dev.pdf'><span>嵌入式Linux驱动开发</span></a></p></li></ul><p><span>关于嵌入式Linux开发期间的，有：</span></p><ul><li><p><a href='assets/pdf/firmware_download.pdf'><span>【详解】嵌入式开发中固件的烧录方式</span></a></p></li><li><p><a href='assets/pdf/runtime_upgrade_linux.pdf'><span>在Linux运行期间升级Linux系统（Uboot+kernel+Rootfs）</span></a></p></li></ul><p><span>而关于典型的Uboot+Kernel+Rootfs的嵌入式Linux中的Uboot：</span></p><p><span>其中的最开始的启动代码相关的Start.S的汇编代码，实现了启动硬件的功能。</span></p><p><span>而关于启动的逻辑的具体分析：</span></p><ul><li><p><a href='assets/pdf/uboot_starts_analysis.pdf'><span>Uboot中start.S源码的指令级的详尽解析</span></a></p></li></ul><p><span>而关于具体的某个模块/功能方面的驱动有：</span></p><p><span>关于DMA的驱动：</span></p><ul><li><p><a href='assets/pdf/dma_pl08x_analysis.pdf'><span>详解ARM的AMBA设备中的DMA设备PL08X的Linux驱动</span></a></p></li></ul><p><span>关于无线网卡的驱动：</span></p><ul><li><p><a href='assets/pdf/linux_wireless.pdf'><span>如何在Linux下写无线网卡的驱动</span></a></p></li></ul><p><span>关于Nand Flash方面的驱动和介绍：</span></p><ul><li><p><a href='assets/pdf/linux_nand_driver.pdf'><span>【详解】如何编写Linux下Nand Flash驱动</span></a></p></li></ul><p><span>而其中Linux中关于Nand Flash的是MTD层，MTD中关于如何识别Nand Flash和启动过程的解析是：</span></p><ul><li><p><a href='assets/pdf/nand_get_type.pdf'><span>Linux MTD下获取Nand flash各个参数的过程的详细解析</span></a></p></li></ul><p><span>而关于USB方面的协议介绍和相关驱动开发总结是：</span></p><ul><li><p><a href='assets/pdf/usb_basic.pdf'><span>USB基础知识概论</span></a></p></li><li><p><a href='assets/pdf/usb_disk_driver.pdf'><span>如何实现Linux下的U盘（USB Mass Storage）驱动</span></a></p></li><li><p><a href='assets/pdf/usb_hid.pdf'><span>USB HID Learning Record</span></a></p></li></ul><h4 id='具体模块或领域'><span>具体模块或领域</span></h4><h5 id='plc'><span>PLC</span></h5><p><span>此处暂时把PLC归为嵌入式大类。</span></p><p><span>关于PLC的知识的总结：</span></p><p><a href='assets/pdf/industrial_automation_plc.pdf'><span>工控自动化技术：PLC</span></a></p><h5 id='大的方向嵌入式的不同应用领域'><span>大的方向=嵌入式的不同应用领域</span></h5><ul><li><p><a href='assets/pdf/fieldbus_intro.pdf'><span>现场总线Fieldbus简析</span></a></p></li></ul><p><span>条形码Symbology相关的，各种不同类型的条形码的总结：</span></p><ul><li><p><a href='assets/pdf/symbology_code128.pdf'><span>Code 128 Symbology Introduction</span></a></p></li><li><p><a href='assets/pdf/symbology_gs1128.pdf'><span>GS1-128条形码和相关的AI及FNC1的详解</span></a></p></li><li><p><a href='assets/pdf/symbology_plessey.pdf'><span>Plessey &amp; MSI Symbology Introduction</span></a></p></li><li><p><a href='assets/pdf/symbology_upc.pdf'><span>UPC/UPC-A/UPC-E &amp; EAN Barcode Symbology</span></a></p></li></ul><h5 id='小方面来说关于具体的模块硬件协议方面'><span>小方面来说=关于具体的模块/硬件/协议方面</span></h5><p><span>关于蓝牙的：</span></p><ul><li><p><a href='assets/pdf/bluetooth_intro.pdf'><span>蓝牙协议详解</span></a></p></li></ul><p><span>关于串口/RS232的：</span></p><ul><li><p><a href='assets/pdf/rs232_serial_intro.pdf'><span>RS232串口协议详解</span></a></p></li></ul><p><span>关于音频领域的：</span></p><p><span>关于MPEG和MP3的知识：</span></p><ul><li><p><a href='assets/pdf/mpeg_vbr.pdf'><span>MPEG简介 + 如何计算CBR和VBR的MP3的播放时间</span></a></p></li></ul><h3 id='上层软件'><span>上层软件</span></h3><p><span>对于上层纯软件方面，也有一些总结：</span></p><h4 id='上层软件的通用知识'><span>上层软件的通用知识</span></h4><p><span>关于后台开发和设计接口，移动端调用后台接口，测试人员测试接口和网页等相关的：</span></p><p><span>和HTTP方面的知识：</span></p><ul><li><p><a href='assets/pdf/http_summary.pdf'><span>HTTP知识总结</span></a></p></li></ul><p><span>以及后台人员设计RESTFul的API接口需要了解的：</span></p><ul><li><p><a href='assets/pdf/http_restful_api.pdf'><span>HTTP后台端：RESTful API接口设计</span></a></p></li></ul><p><span>各种计算机语言通用的的方面的知识总结：</span></p><ul><li><p><a href='assets/pdf/programming_language_basic.pdf'><span>计算机编程语言基础知识</span></a></p></li><li><p><a href='assets/pdf/language_summary.pdf'><span>各种计算机语言简介和总结</span></a></p></li></ul><p><span>在涉及到前台和后台数据交互，常用数据格式是JSON：</span></p><ul><li><p><span>旧教程</span></p><ul><li><p><a href='assets/pdf/json_tutorial.pdf'><span>JSON详解</span></a></p></li></ul></li><li><p><span>新教程</span></p><ul><li><p><a href='assets/pdf/common_data_format_json.pdf'><span>主流数据格式：JSON</span></a></p></li></ul></li></ul><h5 id='字符编码'><span>字符编码</span></h5><p><span>而用不同的编辑器或IDE，以及处理文件相关的内容时，往往会涉及到文件的字符编码，可参考：</span></p><ul><li><p><a href='assets/pdf/char_encoding.pdf'><span>字符编码详解</span></a></p></li></ul><p><span>而上面的教程内容太多太杂，如果只是想要简单的使用编码方面的知识，可以直接去看：</span></p><ul><li><p><a href='assets/pdf/char_encoding_usage.pdf'><span>字符编码应用</span></a></p></li></ul><h5 id='正则表达式'><span>正则表达式</span></h5><p><span>不同的语言和工具中，都支持用正则表达式去实现复杂的规则去提取想要的数据。可以参考：</span></p><ul><li><p><span>之前用docbook写的旧教程：</span></p><ul><li><p><a href='assets/pdf/regular_expression.pdf'><span>正则表达式学习心得</span></a></p></li></ul></li><li><p><span>后来用gitbook写的新教程</span></p><ul><li><p><a href='assets/pdf/super_search_regex.pdf'><span>应用广泛的超强搜索：正则表达式</span></a></p></li><li><p><span>以及实际的使用案例：</span></p><ul><li><p><a href='assets/pdf/regex_usage_examples.pdf'><span>正则表达式应用举例</span></a></p></li></ul></li></ul></li></ul><h4 id='信息安全'><span>信息安全</span></h4><p><span>需要先对信息安全领域有个总体的了解，可参考我自己边学边整理出的：</span></p><ul><li><p><a href='assets/pdf/information_security_overview.pdf'><span>信息安全概览</span></a></p></li></ul><p><span>然后再去分别了解不同领域内的安全技术：</span></p><h5 id='web安全'><span>Web安全</span></h5><p><span>其中侧总基于浏览器的、Web相关的安全是：</span></p><ul><li><p><a href='assets/pdf/avoid_hacker_attack_web_security.pdf'><span>防止被黑客攻击：Web安全</span></a></p></li></ul><p><span>其中Web安全包含几个主要方面：</span></p><ul><li><p><span>渗透测试</span></p><ul><li><p><a href='assets/pdf/infiltrate_your_net_penetration_testing.pdf'><span>潜入你的网络：渗透测试</span></a></p></li></ul></li><li><p><span>模糊测试</span></p></li><li><p><span>安全(日志)分析</span></p><ul><li><p><a href='assets/pdf/grasp_hacker_track_security_analysis.pdf'><span>掌握黑客的行踪：安全分析</span></a></p></li></ul></li></ul><h5 id='二进制安全'><span>二进制安全</span></h5><p><span>二进制安全，也称</span><code>PWN</code><span>，主要侧重点是操作系统的底层机制：</span></p><ul><li><p><a href='assets/pdf/explore_underlying_mechanism_binary_security.pdf'><span>探究底层机制：二进制安全</span></a></p></li></ul><p><span>其中对于Windows系统，就是常说的Windows的漏洞和挖掘等方向。</span></p><h5 id='设备安全'><span>设备安全</span></h5><p><span>对于</span><code>设备安全</code><span>~=</span><code>物联网安全</code><span>，包含几个子领域=不同侧重点：</span></p><ul><li><p><span>工控领域</span></p><ul><li><p><a href='assets/pdf/industrial_control_security_overview.pdf'><span>工控安全概览</span></a></p></li></ul></li><li><p><span>汽车领域</span></p><ul><li><p><a href='assets/pdf/guard_your_car_safety.pdf'><span>守护你的座驾：汽车安全</span></a></p></li></ul></li></ul><h5 id='移动端安全和逆向'><span>移动端安全和逆向</span></h5><p><span>爬取安卓app的数据期间，折腾过如何破解安卓，后整理心得如下：</span></p><ul><li><p><a href='assets/pdf/android_app_security_crack.pdf'><span>安卓应用的安全和破解</span></a></p></li></ul><p><span>以及辅助工具：</span></p><ul><li><p><a href='assets/pdf/crack_assistant_xposed_framework.pdf'><span>强大的安卓破解辅助工具：XPosed框架</span></a></p></li><li><p><a href='assets/pdf/good_android_emulator_nox.pdf'><span>好用的安卓模拟器：夜神Nox</span></a></p></li></ul><p><span>后来整理出移动端安全和逆向的成套的教程：</span></p><ul><li><p><span>通用</span></p><ul><li><p><span>编程语言</span></p><ul><li><p><span>汇编</span></p><ul><li><p><a href='assets/pdf/popular_assembly_arm.pdf'><span>最流行汇编语言：ARM</span></a></p></li></ul></li><li><p><span>高级语言</span></p><ul><li><p><a href='assets/pdf/c_lang_dev_summary.pdf'><span>C语言开发心得</span></a></p></li></ul></li></ul></li><li><p><span>静态分析</span></p><ul><li><p><a href='assets/pdf/reverse_tool_ida.pdf'><span>逆向利器：IDA</span></a></p></li></ul></li><li><p><span>动态调试</span></p><ul><li><p><a href='assets/pdf/reverse_debug_frida.pdf'><span>逆向调试利器：Frida</span></a></p></li><li><p><a href='assets/pdf/popular_debugger_lldb.pdf'><span>主流调试器：LLDB</span></a></p></li><li><p><span>高级逆向</span></p><ul><li><p><span>代码模拟</span></p><ul><li><p><a href='assets/pdf/cpu_emulator_unicorn.pdf'><span>CPU模拟利器：Unicorn</span></a></p></li></ul></li></ul></li></ul></li></ul></li><li><p><span>Android安全和逆向</span></p><ul><li><p><span>Android逆向</span></p><ul><li><p><a href='assets/pdf/android_reverse_dev.pdf'><span>Android逆向开发</span></a></p><ul><li><p><a href='assets/pdf/android_re_enable_root.pdf'><span>Android逆向：开启root</span></a></p></li><li><p><a href='assets/pdf/android_re_repack_apk.pdf'><span>Android逆向：重新打包apk</span></a></p></li><li><p><a href='assets/pdf/android_re_dynamic_debug.pdf'><span>Android逆向：动态调试</span></a></p></li></ul></li></ul></li></ul></li><li><p><span>iOS安全和逆向</span></p><ul><li><p><span>iOS安全</span></p><ul><li><p><a href='assets/pdf/ios_security_protect.pdf'><span>iOS安全与防护</span></a></p></li></ul></li><li><p><span>iOS逆向</span></p><ul><li><p><a href='assets/pdf/ios_reverse_dev.pdf'><span>iOS逆向开发</span></a></p><ul><li><p><span>系列</span></p><ul><li><p><span>典型流程</span></p><ul><li><p><a href='assets/pdf/ios_re_iphone_jailbreak.pdf'><span>iOS逆向开发：iPhone越狱</span></a></p><ul><li><p><a href='assets/pdf/ios_re_ios15_jailbreak.pdf'><span>iOS逆向：iOS15越狱</span></a></p></li><li><p><a href='assets/pdf/ios_re_package_manager.pdf'><span>iOS逆向开发：越狱包管理器</span></a></p></li></ul></li><li><p><a href='assets/pdf/ios_re_crack_shell_ipa.pdf'><span>iOS逆向开发：砸壳ipa</span></a></p></li><li><p><a href='assets/pdf/ios_re_static_analysis.pdf'><span>iOS逆向开发：静态分析</span></a></p></li><li><p><a href='assets/pdf/ios_re_dynamic_debug.pdf'><span>iOS逆向开发：动态调试</span></a></p><ul><li><p><a href='assets/pdf/ios_re_monkeydev_debug.pdf'><span>iOS逆向开发：MonkeyDev调试</span></a></p></li><li><p><a href='assets/pdf/xcode_dev_summary.pdf'><span>Xcode开发心得</span></a></p><ul><li><p><a href='assets/pdf/xcode_dev_debug_summary.pdf'><span>Xcode开发：调试心得</span></a></p></li></ul></li></ul></li></ul></li><li><p><span>涉及领域</span></p><ul><li><p><a href='assets/pdf/ios_re_jailbreak_tweak.pdf'><span>iOS逆向开发：越狱插件开发</span></a></p><ul><li><p><a href='assets/pdf/ios_re_iosopendev_tweak.pdf'><span>iOS逆向开发：iOSOpenDev开发插件</span></a></p></li></ul></li><li><p><a href='assets/pdf/ios_re_ios_internal.pdf'><span>iOS逆向开发：iOS底层机制</span></a></p><ul><li><p><a href='assets/pdf/ios_re_objc_runtime.pdf'><span>iOS逆向开发：ObjC运行时</span></a></p></li><li><p><a href='assets/pdf/ios_re_objc_block.pdf'><span>iOS逆向开发：Block匿名函数</span></a></p></li></ul></li><li><p><a href='assets/pdf/ios_re_jb_detection.pdf'><span>iOS逆向开发：越狱检测和反越狱检测</span></a></p></li><li><p><a href='assets/pdf/ios_re_debug_breakpoint.pdf'><span>iOS逆向之动态调试：断点</span></a></p></li></ul></li><li><p><span>实例</span></p><ul><li><p><a href='assets/pdf/ios_re_youtube_reverse.pdf'><span>iOS逆向开发：YouTube逆向</span></a></p><ul><li><p><a href='assets/pdf/ios_re_protobuf_reverse.pdf'><span>iOS逆向YouTube：protobuf逆向</span></a></p></li></ul></li></ul></li></ul></li><li><p><span>相关</span></p><ul><li><p><span>开发语言</span></p><ul><li><p><a href='assets/pdf/ios_dev_summary.pdf'><span>iOS开发心得</span></a></p></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul><h4 id='自动化'><span>自动化</span></h4><h5 id='把工作自动化的工具'><span>把工作自动化的工具</span></h5><p><span>不论是嵌入式还是上层软件，都可以用一些工具，从手动变自动，去提高做事效率，比如Makefile：</span></p><ul><li><p><a href='assets/pdf/good_automation_tool_makefile.pdf'><span>自动化利器：Makefile</span></a></p></li></ul><h5 id='自动化测试'><span>自动化测试</span></h5><p><span>对于自动化测试，先看概览以了解有哪些子领域：</span></p><ul><li><p><a href='assets/pdf/free_hand_test_automation.pdf'><span>自动化测试概览</span></a></p></li></ul><p><span>然后再去了解不同子领域：</span></p><ul><li><p><span>Web端</span></p><ul><li><p><span>Web领域的自动化测试，也叫Web网页自动化，往往也属于爬虫领域，常用工具有</span></p><ul><li><p><span>Selenium</span></p><ul><li><p><a href='assets/pdf/selenium_summary.pdf'><span>Selenium知识总结</span></a></p></li></ul></li><li><p><span>Playwright</span></p><ul><li><p><a href='assets/pdf/web_automation_tool_playwright.pdf'><span>跨平台Web自动化神器：Playwright</span></a></p></li></ul></li><li><p><span>puppeteer</span></p><ul><li><p><a href='assets/pdf/web_automation_tool_puppeteer.pdf'><span>Web前端自动化利器：puppeteer</span></a></p></li></ul></li></ul></li></ul></li><li><p><span>移动端</span></p><ul><li><p><span>先了解概况</span></p><ul><li><p><a href='assets/pdf/mobile_automation_overview.pdf'><span>移动端自动化测试概览</span></a></p></li></ul></li><li><p><span>再看具体的不同方向的工具</span></p><ul><li><p><span>通用=跨平台</span></p><ul><li><p><a href='assets/pdf/popular_automation_framework_appium.pdf'><span>主流跨平台自动化框架：Appium</span></a></p></li></ul></li><li><p><span>Android端</span></p><ul><li><p><span>安卓端的话，可以用</span><code>uiautomator2</code></p><ul><li><p><a href='assets/pdf/android_automation_uiautomator2.pdf'><span>安卓自动化测试利器：uiautomator2</span></a></p></li></ul></li></ul></li><li><p><span>iOS端</span></p><ul><li><p><span>关于iOS端的自动化测试，可以考虑用</span><code>facebook-wda</code><span>：</span></p><ul><li><p><a href='assets/pdf/ios_automation_facebook_wda.pdf'><span>iOS自动化测试利器：facebook-wda</span></a></p></li></ul></li></ul></li></ul></li></ul></li></ul><h4 id='pc桌面端软件'><span>PC桌面端软件</span></h4><p><span>在写Windows平台的桌面端软件时，可以使用</span><code>C#</code><span>：</span></p><ul><li><p><a href='assets/pdf/csharp_summary.pdf'><span>C#学习心得</span></a></p></li></ul><p><span>如果想要开发跨平台的桌面端应用，可以考虑选用</span><code>Electron</code><span>：</span></p><ul><li><p><a href='assets/pdf/desktop_app_framework_electron.pdf'><span>跨平台桌面应用框架：Electron</span></a></p></li></ul><h4 id='苹果系统'><span>苹果系统</span></h4><p><span>苹果的</span><code>Mac</code><span>、</span><code>iOS</code><span>等相关开发总结：</span></p><p><a href='assets/pdf/apple_develop_summary.pdf'><span>苹果相关开发总结</span></a></p><h4 id='网页web领域开发'><span>网页Web领域开发</span></h4><p><span>关于如何搭建网站，以及如何给网站搬家的话，可以参考：</span></p><ul><li><p><a href='assets/pdf/build_website.pdf'><span>建设网站详细教程</span></a></p></li><li><p><a href='assets/pdf/website_transfer.pdf'><span>网站搬家详解</span></a></p></li></ul><p><span>在数据可视化方面，有很多JS图形库，图标库，其中主流的有：</span></p><ul><li><p><a href='assets/pdf/popular_js_chart_lib_echarts.pdf'><span>流行的JS图表库：ECharts</span></a></p></li></ul><h4 id='移动端app开发'><span>移动端APP开发</span></h4><p><span>在涉及到移动端开发时，可以参考：</span></p><ul><li><p><a href='assets/pdf/mobile_app_summary.pdf'><span>移动端APP开发总结</span></a></p></li></ul><p><span>后续整理出了，不同端的开发总结：</span></p><ul><li><p><span>Android</span></p><ul><li><p><a href='assets/pdf/android_dev_summary.pdf'><span>Android开发总结</span></a></p></li></ul></li><li><p><span>iOS</span></p><ul><li><p><a href='assets/pdf/ios_dev_summary.pdf'><span>iOS开发心得</span></a></p></li></ul></li></ul><h4 id='爬虫'><span>爬虫</span></h4><p><span>折腾网络爬虫（和模拟登录）领域的话，可以先去了解宏观逻辑和概念：</span></p><ul><li><p><a href='assets/pdf/crawl_your_data_spider_technology.pdf'><span>爬取你要的数据：爬虫技术</span></a></p></li></ul><p><span>再去选择合适的语言去写爬虫，比如目前最适合的是Python：</span></p><ul><li><p><a href='assets/pdf/use_python_write_spider.pdf'><span>如何用Python写爬虫</span></a></p></li></ul><p><span>然后才涉及到基于某语言（Python）去具体选择什么框架（PySpider），以提高爬虫效率：</span></p><ul><li><p><a href='assets/pdf/python_spider_pyspider.pdf'><span>Python爬虫框架：PySpider</span></a></p></li><li><p><a href='assets/pdf/python_spider_scrapy.pdf'><span>主流Python爬虫框架：Scrapy</span></a></p></li></ul><p><span>在爬虫领域内涉及到提取内容时，往往才会涉及到Xpath：</span></p><ul><li><p><a href='assets/pdf/xpath_summary.pdf'><span>XPath知识总结</span></a></p></li></ul><p><span>如果想要抓包app时可以用：</span></p><ul><li><p><a href='assets/pdf/app_capture_package_tool_charles.pdf'><span>app抓包利器：Charles</span></a></p></li></ul><p><span>另外，之前也写过相关的爬虫方面的资料：</span></p><ul><li><p><a href='assets/pdf/web_scrape_emulate_login.pdf'><span>详解抓取网站，模拟登陆，抓取动态网页的原理和实现（Python，C#等）</span></a></p></li><li><p><a href='assets/pdf/python_topic_web_scrape.pdf'><span>Python专题教程：抓取网站，模拟登陆，抓取动态网页</span></a></p></li></ul><h4 id='通信领域'><span>通信领域</span></h4><p><span>在移动通信网络中，总体网络从1G到5G的演化，可以参考：</span></p><ul><li><p><a href='assets/pdf/mobile_network_evolution_history.pdf'><span>移动网络演化史</span></a></p></li></ul><p><span>期间出现了相关技术：</span></p><ul><li><p><span>(RCS底层所依赖的技术)IMS</span></p><ul><li><p><a href='assets/pdf/multimedia_core_system_ims.pdf'><span>多媒体业务核心子系统：IMS</span></a></p></li></ul></li><li><p><span>RCS</span></p><ul><li><p><span>概览</span></p><ul><li><p><a href='assets/pdf/5g_message_rcs_tech_summary.pdf'><span>5G消息RCS技术总结</span></a></p></li></ul></li><li><p><span>开发</span></p><ul><li><p><a href='assets/pdf/rcs_tech_dev_summary.pdf'><span>RCS技术开发总结</span></a></p></li></ul></li></ul></li></ul><p><span>而最新的5G技术，总体概览如下：</span></p><ul><li><p><a href='assets/pdf/5g_tech_summary.pdf'><span>5G技术概述</span></a></p></li></ul><h4 id='上层软件的其他领域'><span>上层软件的其他领域</span></h4><p><span>比如想要开发自己特定领域内的语言的解析器，即实现自己的编译器，可以使用ANTLR：</span></p><ul><li><p><a href='assets/pdf/antlr_tutorial.pdf'><span>ANTLR教程</span></a></p></li></ul><p><span>想要和我一样去制作出复杂的电子书，则可以：</span></p><p><span>先学习通用的语法格式Markdown：</span></p><ul><li><p><a href='assets/pdf/doc_format_markdown.pdf'><span>最流行的文档格式：Markdown</span></a></p></li></ul><p><span>再去使用相对简单好用的工具GitBook去制作电子书：</span></p><ul><li><p><a href='assets/pdf/ebook_system_gitbook.pdf'><span>电子书制作利器：GitBook</span></a></p><ul><li><p><span>如果想要更简单易用更省心，可以基于我的</span><a href='https://github.com/crifan/gitbook_template'><span>Gitbook的模板</span></a><span>去制作，生成的效果是</span><a href='assets/pdf/gitbook_demo.pdf'><span>Gitbook演示</span></a></p></li></ul></li></ul><p><span>不过gitbook官网放弃维护，所以换用兼容和集成自</span><code>Gitbook</code><span>的</span><code>HonKit</code><span>：</span></p><ul><li><p><a href='https://github.com/crifan/honkit_template'><span>crifan/honkit_template: 用于创建HonKit电子书的HonKit的模板</span></a></p></li></ul><p><span>也可以用更加强大但非常复杂的，技术类书籍专业制作工具Docbook：</span></p><ul><li><p><a href='assets/pdf/docbook_dev_note.pdf'><span>Docbook开发手记</span></a></p></li></ul><p><span>在数据库方面，主流的文档数据库有：</span></p><ul><li><p><a href='assets/pdf/popular_rmdb_mysql.pdf'><span>主流关系数据库：MySQL</span></a></p></li><li><p><a href='assets/pdf/popular_document_db_mongodb.pdf'><span>主流文档型数据库：MongoDB</span></a></p></li></ul><p><span>不同系统中都会涉及到文件和代码等压缩，可以参考：</span></p><ul><li><p><a href='assets/pdf/common_compress_tool_summary.pdf'><span>常见压缩工具总结</span></a></p></li></ul><p><span>如果涉及到音视频的处理，可以用强大的</span><code>ffmpeg</code><span>：</span></p><ul><li><p><a href='assets/pdf/media_process_ffmpeg.pdf'><span>强大的音视频处理工具：ffmpeg</span></a></p></li></ul><h4 id='python语言'><span>Python语言</span></h4><p><span>折腾折腾Pyton期间，单独整理了一系列的内容，供参考：</span></p><ul><li><p><span>旧的</span></p><ul><li><p><span>用于入门级的介绍的：</span></p><ul><li><p><a href='assets/pdf/python_beginner_tutorial.pdf'><span>python初级教程：入门详解</span></a></p></li></ul></li><li><p><span>关于整体的Python的心得和总结：</span></p><ul><li><p><a href='assets/pdf/python_intermediate_tutorial.pdf'><span>python中级教程：开发总结</span></a></p></li><li><p><a href='assets/pdf/python_summary.pdf'><span>Python语言总结</span></a></p></li></ul></li><li><p><span>关于某个特定的模块的总结：</span></p><ul><li><p><span>BeautifulSoup</span></p><ul><li><p><span>旧教程</span></p><ul><li><p><a href='assets/pdf/python_topic_beautifulsoup.pdf'><span>Python专题教程：BeautifulSoup详解</span></a></p></li></ul></li><li><p><span>新教程</span></p><ul><li><p><a href='assets/pdf/html_parse_tool_beautifulsoup.pdf'><span>网页解析利器：BeautifulSoup</span></a></p></li></ul></li></ul></li><li><p><span>PyQuery</span></p><ul><li><p><a href='assets/pdf/python_html_parse_pyquery.pdf'><span>HTML解析库Python版jQuery：PyQuery</span></a></p></li></ul></li><li><p><span>re模块</span></p><ul><li><p><span>旧的</span></p><ul><li><p><a href='assets/pdf/python_topic_re.pdf'><span>Python专题教程：正则表达式re模块详解</span></a></p></li></ul></li><li><p><span>新的</span></p><ul><li><p><a href='assets/pdf/python_regex_re_intro.pdf'><span>Python中正则表达式：re模块详解</span></a></p></li></ul></li></ul></li><li><p><span>字符编码</span></p><ul><li><p><a href='assets/pdf/python_topic_str_encoding.pdf'><span>Python专题教程：字符串和字符编码</span></a></p></li></ul></li><li><p><span>网络库</span></p><ul><li><p><a href='assets/pdf/python_summary_http_lib.pdf'><span>Python心得：http网络库</span></a></p></li></ul></li><li><p><span>操作excel和CSV</span></p><ul><li><p><a href='assets/pdf/python_process_csv_excel.pdf'><span>Python心得：操作CSV和Excel</span></a></p></li></ul></li></ul></li></ul></li><li><p><span>新的</span></p><ul><li><p><span>对于新手小白常见的错误和解决方案和引申思考：</span></p><ul><li><p><a href='assets/pdf/python_newbie_mistakes_questions.pdf'><span>Python新手小白常见错误和问题</span></a></p></li></ul></li><li><p><span>全新整理的</span></p><ul><li><p><a href='assets/pdf/make_life_better_python.pdf'><span>让你人生不苦短的编程语言：Python</span></a></p></li><li><p><span>常用代码段：</span></p><ul><li><p><a href='assets/pdf/python_common_code_snippet.pdf'><span>Python常用代码段</span></a></p></li></ul></li></ul></li><li><p><span>虚拟环境</span></p><ul><li><p><a href='assets/pdf/python_summary_virtual_environment.pdf'><span>Python心得：虚拟环境</span></a></p></li></ul></li></ul></li></ul><h4 id='我crifan的技术库'><span>我Crifan的技术库</span></h4><p><span>在折腾技术方面，整理出一些，相对通用的库，整理出来，供参考：</span></p><p><span>目前最新的代码，都放到 </span><a href='https://github.com/crifan'><span>crifan的Github</span></a><span>上了：</span></p><p><span>其中关于自己的库函数，各种语言都有：</span></p><ul><li><p><a href='https://github.com/crifan/crifanLib' target='_blank' class='url'>https://github.com/crifan/crifanLib</a></p><ul><li><p><span>其中Python已单独整理出</span></p><ul><li><p><a href='https://github.com/crifan/crifanLibPython' target='_blank' class='url'>https://github.com/crifan/crifanLibPython</a></p></li></ul></li></ul></li></ul><p><span>其中关于C#和Python，分别写了专门的电子书解释如何使用：</span></p><ul><li><p><a href='assets/pdf/crifanlib_csharp.pdf'><span>详解crifan的C#库：crifanLib.cs</span></a></p></li><li><p><a href='assets/pdf/crifanlib_python.pdf'><span>详解crifan的Python库：crifanLib.py</span></a></p></li></ul><h2 id='非技术类'><span>非技术类</span></h2><h3 id='电脑计算机使用类'><span>电脑计算机使用类</span></h3><p><span>和电脑/计算机使用方面的知识，比如有哪些常见的操作系统，以及如何安装软件和驱动等知识的：</span></p><ul><li><p><a href='assets/pdf/compute_basic.pdf'><span>电脑基础知识教程</span></a></p></li></ul><p><span>以及觉得很多好用的工具和软件，也进行了推荐：</span></p><ul><li><p><a href='assets/pdf/crifan_rec_soft.pdf'><span>crifan推荐软件</span></a></p></li></ul><p><span>和技术开发有点关系，但是更主要是属于电脑使用方面的，虚拟机：</span></p><p><span>在</span><code>Windows</code><span>、</span><code>Mac</code><span>等系统中，想要安装另外一个系统，可以用虚拟机软件，比如</span><code>VMWare</code><span>或</span><code>VirtualBox</code><span>：</span></p><ul><li><p><a href='assets/pdf/virutal_machine_tutorial.pdf'><span>虚拟机教程</span></a></p></li><li><p><a href='assets/pdf/virtualbox_tutorial.pdf'><span>VirtualBox教程</span></a></p></li><li><p><span>VMWare</span></p><ul><li><p><span>旧的</span></p><ul><li><p><a href='assets/pdf/vmware_tutorial.pdf'><span>VMWare教程</span></a></p></li></ul></li><li><p><span>新的</span></p><ul><li><p><a href='assets/pdf/popular_virtual_machine_vmware.pdf'><span>主流虚拟机软件：VMWare</span></a></p></li></ul></li></ul></li></ul><h3 id='工作类'><span>工作类</span></h3><p><span>而开始了工作后，需要了解的各种基本概念和常识，包括招聘和应聘，薪资待遇，股票和期权，创业和公司等：</span></p><ul><li><p><a href='assets/pdf/work_job_summary.pdf'><span>工作和职业相关知识</span></a></p></li></ul><p><span>而和别人合作时，往往涉及到文件共享，资料共享，协同编辑等内容，可以使用有道云协作：</span></p><ul><li><p><a href='assets/pdf/youdao_note_summary.pdf'><span>有道云笔记和云协作使用总结</span></a></p></li></ul><p><span>而工作后，会遇到具体的某个商业领域相关的知识，比如：</span></p><h4 id='领域相关知识'><span>领域相关知识</span></h4><p><span>汽车销售行业内的知识，包括售前和售后、整车厂和经销商。经销商和客户等相关内容：</span></p><ul><li><p><a href='assets/pdf/automobile_sales_summary.pdf'><span>汽车销售领域知识总结</span></a></p></li></ul><h3 id='生活类'><span>生活类</span></h3><p><span>和买房前后需要注意哪些事项，具体买房的过程的内容：</span></p><ul><li><p><a href='assets/pdf/buy_house.pdf'><span>买房详细教程</span></a></p></li></ul><p><span>以及日常生活期间也有些心得供参考：</span></p><ul><li><p><a href='assets/pdf/resident_life_experience_summary.pdf'><span>居民生活经验总结</span></a></p></li></ul><p><span>针对苏州这个城市，也专门整理了极其详尽的各种资料，尤其是宏观规划，详见：</span></p><ul><li><p><a href='assets/pdf/china_suitable_living_suzhou.pdf'><span>中国宜居城市：苏州</span></a></p></li></ul><h3 id='娱乐类'><span>娱乐类</span></h3><p><span>本人常年打羽毛球，有些心得，整理如下，供喜欢羽毛球运动的参考：</span></p><ul><li><p><a href='assets/pdf/all_age_sports_badminton.pdf'><span>老少皆宜的运动：羽毛球</span></a></p></li><li><p><span>脑图</span></p><ul><li><p><span>在线浏览</span></p><ul><li><p><a href='https://www.processon.com/view/link/5fa6221f637689653d8b9a1c'><span>crifan电子书概览</span></a></p></li></ul></li><li><p><span>图片</span></p><ul><li><p><img src="assets/processon/crifan电子书概览.png" referrerpolicy="no-referrer" alt="crifan电子书概览"></p></li></ul></li></ul></li><li><p><span>补充内容</span></p><ul><li><p><a href='extra.html'><span>extra</span></a></p></li></ul></li></ul></div></div>
+</body>
+</html>

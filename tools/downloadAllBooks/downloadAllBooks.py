@@ -20,6 +20,11 @@ RequestsProxies = {
     "http"  : "http://127.0.0.1:58591",
     "https" : "http://127.0.0.1:58591",
 }
+
+RequestsProxies = {
+    "http"  : "http://127.0.0.1:6152",
+    "https" : "http://127.0.0.1:6152",
+}
 ################################################################################
 # Util Functions
 ################################################################################
@@ -411,7 +416,7 @@ for curIdx, eachDocbookName in enumerate(uniqueDocbookNameList):
 
 # * [风格](https://book.crifan.com/books/program_code_style/website)
 # * [VSCode](http://book.crifan.com/books/best_editor_vscode/website)
-allGitbookNameList = re.findall("https?://book\.crifan\.com/books/(\w+)/website", mdStr)
+allGitbookNameList = re.findall("https?://book\.crifan\.org/books/(\w+)/website", mdStr)
 gitbooNameTotalNum = len(allGitbookNameList)
 print("gitbooNameTotalNum=%s" % gitbooNameTotalNum) # 139
 uniqueGitbookNameSet = set(allGitbookNameList)
@@ -421,7 +426,7 @@ print("uniqueGitbookNameTotalNum=%s" % uniqueGitbookNameTotalNum) # 71
 
 for curIdx, eachGitbookName in enumerate(uniqueGitbookNameList):
   curNum = curIdx + 1
-  curGitbookPdfUrl = "https://book.crifan.com/books/%s/pdf/%s.pdf" % (eachGitbookName, eachGitbookName)
+  curGitbookPdfUrl = "https://book.crifan.org/books/%s/pdf/%s.pdf" % (eachGitbookName, eachGitbookName)
   # print("[%d] curGitbookPdfUrl=%s" % (curNum, curGitbookPdfUrl))
   # https://book.crifan.com/books/best_editor_vscode/pdf/best_editor_vscode.pdf
   # https://book.crifan.com/books/scientific_network_summary/pdf/scientific_network_summary.pdf
