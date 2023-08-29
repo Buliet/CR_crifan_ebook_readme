@@ -10,6 +10,13 @@ https://crifan.github.io
 find . -name '*.html' -type f -exec sed -E -i '' -e 's#<a href="http://www.crifan.com" target="_blank" class="custom-link">主页</a>#<a href="https://crifan.local" target="_blank" class="custom-link">主页</a>#g' {} \;
 find . -name '*.html' -type f -exec sed -E -i '' -e 's#<a class="link" href="http://crifan.com" target="_top">http://crifan.com</a>#<a class="link" href="https://crifan.local" target="_top">https://crifan.local</a>#g' {} \;
 
+# css
+http://www.crifan.com/files/res/docbook/css/docbook_crl.css
+
+/assets/css/docbook_crl.css
+
+find . -name '*.html' -type f -exec sed -E -i '' -e "s#http://www.crifan.com/files/res/docbook/css/docbook_crl.css#/assets/css/docbook_crl.css#g" {} \;
+
 # ref
 http://crifan.com/files/doc/docbook/xxx/release/html/xxx.html
 http://crifan.org/files/doc/docbook/xxx/release/html/xxx.html
@@ -56,9 +63,3 @@ https://book.crifan.org/books/xxx/website
 https://book.crifan.com/books/xxx/pdf
 https://book.crifan.org/books/xxx/pdf
 
-# css
-http://www.crifan.com/files/res/docbook/css/docbook_crl.css
-
-/assets/css/docbook_crl.css
-
-find . -name '*.html' -type f -exec sed -E -i '' -e "s#http://www.crifan.com/files/res/docbook/css/docbook_crl.css#/assets/css/docbook_crl.css#g" {} \;
