@@ -1,5 +1,7 @@
 .DS_Store
 downloaded/
-assets/pdf
-assets/website
+assets/pdf/
+assets/website/
+tools/*.log
+tools/source/
 *.tar.gz
